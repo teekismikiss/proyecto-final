@@ -16,8 +16,8 @@ graph TD;
     Homepage--> Tebeos;
     Homepage-->Tiendas;
     Tebeos-->Cambiar;
-    Tebeos-->Modificar;
-     Tebeos-->Coleccion;
+    Tebeos--> Consultar;
+     Tebeos-->Modificar ;
     Tiendas--> Mostrar;
     Tiendas-->Añadir;
     
