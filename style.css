@@ -90,6 +90,13 @@ select {
   border-radius: 2px;
 }
 
+
+.hero:hover {
+  background: var(--ye);
+  box-shadow: 0 8px 20px rgba(198, 93, 46, 0.14);
+  transform: translateY(-1px);
+}
+
 .eyebrow {
   margin: 0 0 8px;
   color: var(--accent-dark);
@@ -213,6 +220,14 @@ h1 {
   font-weight: 600;
 }
 
+#form-comic:hover {
+  background: var(--yel);
+}
+
+.nuevabd:hover {
+  background: var(--yel);
+}
+
 input,
 select {
   width: 100%;
@@ -294,13 +309,7 @@ ul {
   max-width: 120px;
 }
 
-.btnuno:hover,
-#btn-mostrar-tiendas:hover,
-#btn-buscar-bd:hover {
-  background: var(--pu);
-  box-shadow: 0 8px 20px rgba(198, 93, 46, 0.14);
-  transform: translateY(-1px);
-}
+
 
 .add-btn {
   display: inline-flex;

@@ -84,13 +84,18 @@
                         <option value="si">Namái los que tengo</option>
                         <option value="no">Namái los que me falten</option>
                     </select>
-                    <br><ul>
-                        <li>                    <a href="listado.html" id="btn-cambio-bd" class="btnuno" data-action="guardar-busqueda" aria-label="collecionBD">Cambio</a><!--pagina para modificar -->
-</li>
-                    <li>                    <a href="listbd.html" id="btn-buscar-bd" class="btnuno" data-action="guardar-busqueda" aria-label="collecionBD">Buscar</a><!--pagina para consultar -->
-</li>
-                    <li>                    <a href="nuevabd.html" class="btnuno" aria-label="Añadir BD">Añadir</a>
-</li>
+                    <br>
+                    <ul>
+                        <li> <a href="listado.html" id="btn-cambio-bd" class="btnuno back-link"
+                                data-action="guardar-busqueda"
+                                aria-label="collecionBD">Cambio</a><!--pagina para modificar -->
+                        </li>
+                        <li> <a href="listbd.html" id="btn-buscar-bd" class="btnuno back-link"
+                                data-action="guardar-busqueda"
+                                aria-label="collecionBD">Buscar</a><!--pagina para consultar -->
+                        </li>
+                        <li> <a href="nuevabd.html" class="btnuno back-link" aria-label="Añadir BD">Añadir</a>
+                        </li>
                     </ul>
 
                 </div>
@@ -107,28 +112,29 @@
                     </div>
                 </div>
 
-	                <div class="filters-grid compact">
-	                    <label for="filtro-sitio">Sitio</label>
-	                    <select id="filtro-sitio" required>
-	                        <option value="">-- Escueye --</option>
-	                        <option value="online">Online</option>
-	                        <option value="fisica">Física</option>
-	                    </select>
-	                    
-	                    <label for="filtro-pais">Filtrar por país</label>
-	                    <select id="filtro-pais">
-	                        <option value="todos">Tolos países</option>
-	                    </select>
+                <div class="filters-grid compact">
+                    <label for="filtro-sitio">Sitio</label>
+                    <select id="filtro-sitio" required>
+                        <option value="">-- Escueye --</option>
+                        <option value="online">Online</option>
+                        <option value="fisica">Física</option>
+                    </select>
+
+                    <label for="filtro-pais">Filtrar por país</label>
+                    <select id="filtro-pais">
+                        <option value="todos">Tolos países</option>
+                    </select>
 
                     <label for="filtro-ciudad">Filtrar por ciudá</label>
                     <select id="filtro-ciudad">
                         <option value="todas">Toles ciudaes</option>
                     </select>
-	                </div>
-<br>
-	                <ul id="lista-tiendas-guardadas" class="store-list"></ul>
-	                <a href="tiendas.html" id="btn-mostrar-tiendas" class="btnuno" data-action="mostrar-tiendas" aria-label="Mostrar tiendas">Mostrar</a>
-	                <a href="nuevatienda.html" class="btnuno" aria-label="Añadir tienda">Añadir</a>
+                </div>
+                <br>
+                <ul id="lista-tiendas-guardadas" class="store-list"></ul>
+                <a href="tiendas.html" id="btn-mostrar-tiendas" class="back-link" data-action="mostrar-tiendas"
+                    aria-label="Mostrar tiendas">Mostrar</a>
+                <a href="nuevatienda.html" class="back-link" aria-label="Añadir tienda">Añadir</a>
 
             </section>
         </main>
@@ -165,8 +171,8 @@
     <footer>
 
     </footer>
-	    <script defer src="bdColeccion.js?v=20260419"></script>
-	    <script defer src="app.js?v=20260419"></script>
-	</body>
+    <script defer src="bdColeccion.js?v=20260419"></script>
+    <script defer src="app.js?v=20260419"></script>
+</body>
 
-	</html>
+</html>
