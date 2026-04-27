@@ -604,6 +604,9 @@ function pintarTablaColeccion(visibles, accionesServidor = false) {
 
     visibles.forEach((comic) => {
         const fila = document.createElement("tr");
+        if (comic.tieneslu) {
+            fila.style.background = "#c2f434";
+        }
         const accionesHtml = configTabla.showActions
             ? `
           <td>
@@ -681,10 +684,14 @@ function enlazarAccionesTabla(showActions, accionesServidor) {
                 await actualizarTienesluServidor(id, nuevoOwned);
                 button.dataset.owned = nuevoOwned ? "1" : "0";
                 button.textContent = textoAccionTieneslu(nuevoOwned);
-                const pill = button.closest("tr")?.querySelector(".own-pill");
-                if (pill) {
-                    pill.dataset.owned = String(nuevoOwned);
-                    pill.textContent = nuevoOwned ? "Sí" : "Non";
+                const row = button.closest("tr");
+                if (row) {
+                    row.style.background = nuevoOwned ? "#c2f434" : "";
+                    const pill = row.querySelector(".own-pill");
+                    if (pill) {
+                        pill.dataset.owned = String(nuevoOwned);
+                        pill.textContent = nuevoOwned ? "Sí" : "Non";
+                    }
                 }
             } catch (error) {
                 console.warn("No se pudo actualizar la propiedad.", error);
