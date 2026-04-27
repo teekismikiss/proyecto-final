@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#c65d2e">
+    <meta name="description" content="Xestiona la to coleición de BD y TU repertorio de tiendas de cómic.">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/icon-192.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/icon-192.svg">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- cargarmos fontawesome para iconitos-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>BD Tracker</title>
+</head>
+
+
+
+<title>BD Tracker</title>
+</head>
+
+<body>
+    <div class="app-shell">
+        <header class="hero">
+            <div>
+                <p class="eyebrow">Coleición de BD</p>
+                <h1>BD Tracker</h1>
+                <p class="hero-copy">
+                    ¡A por toles!
+                </p>
+            </div>
+            <div class="hero-stats" id="resumen-app">
+                <article>
+                    <span class="stat-label">Tomos</span>
+                    <strong id="stat-total">0</strong>
+                </article>
+                <article>
+                    <span class="stat-label">Na to coleición</span>
+                    <strong id="stat-propios">0</strong>
+                </article>
+                <article>
+                    <span class="stat-label">Tiendes</span>
+                    <strong id="stat-tiendas">0</strong>
+                </article>
+            </div>
+        </header>
+
+        <main class="main-grid">
+
+
+            <section id="coleccion" class="panel">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Filtros</p>
+                        <h2>Consultar BD</h2>
+                        <ul id="lesbd" class="flex "></ul> <!----los botones top consulta lesbd bd-link----->
+                    </div>
+                </div>
+
+                <div class="filters-grid">
+                    <label for="buscador-bd">Buscar</label>
+                    <input type="search" id="buscador-bd" placeholder="Serie, títulu, autor, editorial...">
+
+                    <label for="filtro-serie">Serie</label>
+                    <select id="filtro-serie">
+                        <option value="todas">Toles series</option>
+                    </select>
+
+                    <label for="filtro-estado">Estáu</label>
+                    <select id="filtro-estado">
+                        <option value="todos">Tolos estaos</option>
+                        <option value="nuevu">Nuevu</option>
+                        <option value="como-nuevu">Como nuevu</option>
+                        <option value="bon-estau">Bon estáu</option>
+                        <option value="gastau">Gastáu</option>
+                    </select>
+
+                    <label for="filtro-propiedad">Disponibilidá</label>
+                    <select id="filtro-propiedad">
+                        <option value="todos">Toos</option>
+                        <option value="si">Namái los que tengo</option>
+                        <option value="no">Namái los que me falten</option>
+                    </select>
+                    <br><ul>
+                        <li>                    <a href="listado.html" id="btn-cambio-bd" class="btnuno" data-action="guardar-busqueda" aria-label="collecionBD">Cambio</a><!--pagina para modificar -->
+</li>
+                    <li>                    <a href="listbd.html" id="btn-buscar-bd" class="btnuno" data-action="guardar-busqueda" aria-label="collecionBD">Buscar</a><!--pagina para consultar -->
+</li>
+                    <li>                    <a href="nuevabd.html" class="btnuno" aria-label="Añadir BD">Añadir</a>
+</li>
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+
+            <section id="tiendas" class="panel">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Tiendes</p>
+                        <h2>Mis Tiendas de Cómics</h2>
+                    </div>
+                </div>
+
+	                <div class="filters-grid compact">
+	                    <label for="filtro-sitio">Sitio</label>
+	                    <select id="filtro-sitio" required>
+	                        <option value="">-- Escueye --</option>
+	                        <option value="online">Online</option>
+	                        <option value="fisica">Física</option>
+	                    </select>
+	                    
+	                    <label for="filtro-pais">Filtrar por país</label>
+	                    <select id="filtro-pais">
+	                        <option value="todos">Tolos países</option>
+	                    </select>
+
+                    <label for="filtro-ciudad">Filtrar por ciudá</label>
+                    <select id="filtro-ciudad">
+                        <option value="todas">Toles ciudaes</option>
+                    </select>
+	                </div>
+<br>
+	                <ul id="lista-tiendas-guardadas" class="store-list"></ul>
+	                <a href="tiendas.html" id="btn-mostrar-tiendas" class="btnuno" data-action="mostrar-tiendas" aria-label="Mostrar tiendas">Mostrar</a>
+	                <a href="nuevatienda.html" class="btnuno" aria-label="Añadir tienda">Añadir</a>
+
+            </section>
+        </main>
+    </div>
+    <!-- menu -->
+
+    <div id="menu-app">
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fa-solid fa-house" style="color: black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="nuevatienda.html">
+                        <i class="fa-solid fa-shop" style="color:black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="nuevabd.html">
+                        <i class="fa-solid fa-book" style="color:black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="graficos.html">
+                        <i class="fa-solid fa-chart-column" style="color:black;"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- fin de menu -->
+    <footer>
+
+    </footer>
+	    <script defer src="bdColeccion.js?v=20260419"></script>
+	    <script defer src="app.js?v=20260419"></script>
+	</body>
+
+	</html>

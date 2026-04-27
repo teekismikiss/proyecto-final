@@ -1,0 +1,758 @@
+[
+  {
+    "id": 1,
+    "serie": "Natacha",
+    "titulo": "Natacha hôtesse de l'air",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 2,
+    "serie": "Natacha",
+    "titulo": "Natacha et le Maharadjah",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Como nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 3,
+    "serie": "Natacha",
+    "titulo": "La Mémoire de métal",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Bon estáu",
+    "tieneslu": false
+  },
+  {
+    "id": 4,
+    "serie": "Natacha",
+    "titulo": "Un trône pour Natacha",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Gastáu",
+    "tieneslu": false
+  },
+  {
+    "id": 5,
+    "serie": "Natacha",
+    "titulo": "Double vol",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 6,
+    "serie": "Natacha",
+    "titulo": "Un brin de panique",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 7,
+    "serie": "Natacha",
+    "titulo": "L'Ange blond",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 8,
+    "serie": "Natacha",
+    "titulo": "Les Machines incertaines",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 9,
+    "serie": "Natacha",
+    "titulo": "L'Ile d'outre-monde",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Bon estáu",
+    "tieneslu": false
+  },
+  {
+    "id": 10,
+    "serie": "Natacha",
+    "titulo": "Cauchemirage",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Bon estáu",
+    "tieneslu": false
+  },
+  {
+    "id": 11,
+    "serie": "Natacha",
+    "titulo": "Le Grand pari",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Bon estáu",
+    "tieneslu": true
+  },
+  {
+    "id": 12,
+    "serie": "Natacha",
+    "titulo": "La Ceinture de Cherchemidi",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Como nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 13,
+    "serie": "Natacha",
+    "titulo": "Kerguelen",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Como nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 14,
+    "serie": "Natacha",
+    "titulo": "Les Culottes de fer",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Como nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 15,
+    "serie": "Natacha",
+    "titulo": "Natacha et les petits anges",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Como nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 16,
+    "serie": "Natacha",
+    "titulo": "Au septième ciel",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Como nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 17,
+    "serie": "Natacha",
+    "titulo": "La Veuve noire",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Como nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 18,
+    "serie": "Natacha",
+    "titulo": "La Mer de rochers",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 19,
+    "serie": "Natacha",
+    "titulo": "Atoll 66",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 20,
+    "serie": "Natacha",
+    "titulo": "Le Regard du passé",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 21,
+    "serie": "Natacha",
+    "titulo": "L'Épervier bleu",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 22,
+    "serie": "Natacha",
+    "titulo": "Sur les traces de l'Épervier bleu",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Bon estáu",
+    "tieneslu": false
+  },
+  {
+    "id": 23,
+    "serie": "Natacha",
+    "titulo": "Chanson d'avril",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 24,
+    "serie": "Natacha",
+    "titulo": "Le Grand pari",
+    "autor": "Walthéry",
+    "editorial": "Dupuis",
+    "estado": "Gastáu",
+    "tieneslu": false
+  },
+  {
+    "id": 25,
+    "serie": "Yoko Tsuno",
+    "titulo": "Le Trio de l'étrange",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 26,
+    "serie": "Yoko Tsuno",
+    "titulo": "L'Orgue du diable",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 27,
+    "serie": "Yoko Tsuno",
+    "titulo": "La Forge de Vulcain",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 28,
+    "serie": "Yoko Tsuno",
+    "titulo": "Aventures électroniques",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 29,
+    "serie": "Yoko Tsuno",
+    "titulo": "Message pour l'éternité",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 30,
+    "serie": "Yoko Tsuno",
+    "titulo": "Les Trois soleils de Vinéa",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 31,
+    "serie": "Yoko Tsuno",
+    "titulo": "La Frontière de la vie",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 32,
+    "serie": "Yoko Tsuno",
+    "titulo": "Les Titans",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 33,
+    "serie": "Yoko Tsuno",
+    "titulo": "La Fille du vent",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 34,
+    "serie": "Yoko Tsuno",
+    "titulo": "La Lumière d'Ixo",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 35,
+    "serie": "Yoko Tsuno",
+    "titulo": "La Spirale du temps",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 36,
+    "serie": "Yoko Tsuno",
+    "titulo": "La Proie et l'ombre",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 37,
+    "serie": "Yoko Tsuno",
+    "titulo": "Les Archanges de Vinéa",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 38,
+    "serie": "Yoko Tsuno",
+    "titulo": "Le Feu de Wotan",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 39,
+    "serie": "Yoko Tsuno",
+    "titulo": "Le Canon de Kra",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 40,
+    "serie": "Yoko Tsuno",
+    "titulo": "Le Dragon de Hong Kong",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 41,
+    "serie": "Yoko Tsuno",
+    "titulo": "Le Matin du monde",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 42,
+    "serie": "Yoko Tsuno",
+    "titulo": "Les Exilés de Kifa",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 43,
+    "serie": "Yoko Tsuno",
+    "titulo": "L'Or du Rhin",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 44,
+    "serie": "Yoko Tsuno",
+    "titulo": "L'Astrologue de Bruges",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 45,
+    "serie": "Yoko Tsuno",
+    "titulo": "La Porte des âmes",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 46,
+    "serie": "Yoko Tsuno",
+    "titulo": "La Jonque céleste",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 47,
+    "serie": "Yoko Tsuno",
+    "titulo": "La Pagode des brumes",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 48,
+    "serie": "Yoko Tsuno",
+    "titulo": "Le Septième Code",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 49,
+    "serie": "Yoko Tsuno",
+    "titulo": "La servante de Lucifer",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 50,
+    "serie": "Yoko Tsuno",
+    "titulo": "Le maléfice de l'améthyste",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 51,
+    "serie": "Yoko Tsuno",
+    "titulo": "Le secret de Khâny",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 52,
+    "serie": "Yoko Tsuno",
+    "titulo": "Le temple des immortels",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 53,
+    "serie": "Yoko Tsuno",
+    "titulo": "Anges et faucons",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 54,
+    "serie": "Yoko Tsuno",
+    "titulo": "Les gémeaux de Saturne",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 55,
+    "serie": "Yoko Tsuno",
+    "titulo": "L'aigle des Highlands",
+    "autor": "Roger Leloup",
+    "editorial": "Dupuis",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 56,
+    "serie": "Blake & Mortimer",
+    "titulo": "Le Secret de l'Espadon (Tome 1)",
+    "autor": "E.P. Jacobs",
+    "editorial": "Lombard",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 57,
+    "serie": "Blake & Mortimer",
+    "titulo": "Le Secret de l'Espadon (Tome 2)",
+    "autor": "E.P. Jacobs",
+    "editorial": "Lombard",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 58,
+    "serie": "Blake & Mortimer",
+    "titulo": "Le Secret de l'Espadon (Tome 3)",
+    "autor": "E.P. Jacobs",
+    "editorial": "Lombard",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 59,
+    "serie": "Blake & Mortimer",
+    "titulo": "Le Mystère de la Grande Pyramide (Tome 1)",
+    "autor": "E.P. Jacobs",
+    "editorial": "Lombard",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 60,
+    "serie": "Blake & Mortimer",
+    "titulo": "Le Mystère de la Grande Pyramide (Tome 2)",
+    "autor": "E.P. Jacobs",
+    "editorial": "Lombard",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 61,
+    "serie": "Blake & Mortimer",
+    "titulo": "La Marque Jaune",
+    "autor": "E.P. Jacobs",
+    "editorial": "Lombard",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 62,
+    "serie": "Blake & Mortimer",
+    "titulo": "L'Énigme de l'Atlantide",
+    "autor": "E.P. Jacobs",
+    "editorial": "Lombard",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 63,
+    "serie": "Blake & Mortimer",
+    "titulo": "S.O.S. Météores",
+    "autor": "E.P. Jacobs",
+    "editorial": "Lombard",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 64,
+    "serie": "Blake & Mortimer",
+    "titulo": "Le Piège diabolique",
+    "autor": "E.P. Jacobs",
+    "editorial": "Lombard",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 65,
+    "serie": "Blake & Mortimer",
+    "titulo": "L'Affaire du Collier",
+    "autor": "E.P. Jacobs",
+    "editorial": "Lombard",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 66,
+    "serie": "Blake & Mortimer",
+    "titulo": "Les Trois Formules du Professeur Sato (Tome 1)",
+    "autor": "E.P. Jacobs",
+    "editorial": "Lombard",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 67,
+    "serie": "Blake & Mortimer",
+    "titulo": "Les Trois Formules du Professeur Sato (Tome 2)",
+    "autor": "E.P. Jacobs",
+    "editorial": "Lombard",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 68,
+    "serie": "Blacksad",
+    "titulo": "Un Lugar entre las Sombras",
+    "autor": "Juan Díaz Canales / Juanjo Guarnido",
+    "editorial": "Dargaud",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 69,
+    "serie": "Blacksad",
+    "titulo": "Arctic Nation",
+    "autor": "Juan Díaz Canales / Juanjo Guarnido",
+    "editorial": "Dargaud",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 70,
+    "serie": "Blacksad",
+    "titulo": "Alma Roja",
+    "autor": "Juan Díaz Canales / Juanjo Guarnido",
+    "editorial": "Dargaud",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 71,
+    "serie": "Blacksad",
+    "titulo": "El Infierno, el Silencio",
+    "autor": "Juan Díaz Canales / Juanjo Guarnido",
+    "editorial": "Dargaud",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 72,
+    "serie": "Blacksad",
+    "titulo": "Amarillo",
+    "autor": "Juan Díaz Canales / Juanjo Guarnido",
+    "editorial": "Dargaud",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 73,
+    "serie": "Blacksad",
+    "titulo": "Todo Caerá. Primera Parte",
+    "autor": "Juan Díaz Canales / Juanjo Guarnido",
+    "editorial": "Dargaud",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 74,
+    "serie": "Blacksad",
+    "titulo": "Todo Caerá. Segunda Parte",
+    "autor": "Juan Díaz Canales / Juanjo Guarnido",
+    "editorial": "Dargaud",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 75,
+    "serie": "Superlópez",
+    "titulo": "Superlópez. Integral 1",
+    "autor": "Jan",
+    "editorial": "Ediciones B",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 76,
+    "serie": "Superlópez",
+    "titulo": "Superlópez. Integral 2",
+    "autor": "Jan",
+    "editorial": "Ediciones B",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 77,
+    "serie": "Superlópez",
+    "titulo": "Superlópez. Integral 3",
+    "autor": "Jan",
+    "editorial": "Ediciones B",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 78,
+    "serie": "Superlópez",
+    "titulo": "Superlópez. Integral 4",
+    "autor": "Jan",
+    "editorial": "Ediciones B",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 79,
+    "serie": "Superlópez",
+    "titulo": "Superlópez. Integral 5",
+    "autor": "Jan",
+    "editorial": "Ediciones B",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 80,
+    "serie": "Superlópez",
+    "titulo": "Superlópez. Integral 6",
+    "autor": "Jan",
+    "editorial": "Ediciones B",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 81,
+    "serie": "Superlópez",
+    "titulo": "Superlópez. Integral 7",
+    "autor": "Jan",
+    "editorial": "Ediciones B",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 82,
+    "serie": "Superlópez",
+    "titulo": "Superlópez. Integral 8",
+    "autor": "Jan",
+    "editorial": "Ediciones B",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 83,
+    "serie": "Superlópez",
+    "titulo": "Superlópez. Integral 9",
+    "autor": "Jan",
+    "editorial": "Ediciones B",
+    "estado": "Nuevu",
+    "tieneslu": false
+  },
+  {
+    "id": 84,
+    "serie": "Superlópez",
+    "titulo": "Superlópez. Integral 10",
+    "autor": "Jan",
+    "editorial": "Ediciones B",
+    "estado": "Nuevu",
+    "tieneslu": false
+  }
+]

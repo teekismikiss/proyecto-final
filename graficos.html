@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#c65d2e">
+    <meta name="description" content="Estadístiques de la to coleición de BD — gráficos por series.">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/icon-192.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/icon-192.svg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>BD Tracker — Estadístiques</title>
+
+    <style>
+        /* ── Design tokens (matching app style) ─────────────── */
+        :root {
+            --bg-panel: white;
+            --accent: black;
+            --font-main: "Avenir Next", "Segoe UI", sans-serif;
+            --H3T: "Avenir Next", "Segoe UI", sans-serif;
+            --text-primary: #1a1a1a;
+            --text-muted: #666;
+            --border-color: var(--accent);
+            --bg-page: #f7f5f2;
+            --radius: 3px;
+            --eyebrow-color: #43403e;
+
+
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-panel);
+            color: var(--text-primary);
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+        }
+
+        /* ── Header / Hero ──────────────────────────────────── */
+        .chart-hero {
+            width: 100%;
+            max-width: 960px;
+            padding: 2.5rem 1.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .chart-hero .eyebrow {
+            font-family: var(--H3T);
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--eyebrow-color);
+            margin-bottom: .4rem;
+        }
+
+        .chart-hero h1 {
+            font-family: var(--H3T);
+            font-size: clamp(1.6rem, 5vw, 2.4rem);
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--text-primary);
+        }
+
+        .chart-hero .hero-copy {
+            margin-top: .4rem;
+            color: var(--text-muted);
+            font-size: .9rem;
+        }
+
+        /* ── Stats ribbon ───────────────────────────────────── */
+        .stats-ribbon {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--accent);
+            border-radius: var(--radius);
+            box-shadow: 4px 5px black;
+            padding: .65rem 1.4rem;
+            text-align: center;
+            min-width: 110px;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+        }
+
+        .stat-card .stat-value {
+            display: block;
+            font-family: var(--H3T);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .stat-card .stat-label {
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ── Chart section ──────────────────────────────────── */
+        .chart-section {
+            width: 100%;
+            max-width: 960px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .chart-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--accent);
+            border-radius: var(--radius);
+            box-shadow: 4px 5px black;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-card h2 {
+            font-family: var(--H3T);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            color: var(--text-primary);
+        }
+
+        .chart-card h2 .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background: #f0ece6;
+            color: var(--eyebrow-color);
+            font-size: .8rem;
+        }
+
+        .canvas-wrap {
+            position: relative;
+            width: 100%;
+        }
+
+        /* ── Grid for secondary charts ──────────────────────── */
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .chart-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .chart-grid .chart-card {
+                margin-bottom: 0;
+            }
+        }
+
+        /* --- boton volver--------------------------- */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            margin: 1rem 0 3rem;
+            padding: .55rem 1.3rem;
+            border-radius: var(--radius);
+            background: var(--bg-panel);
+            border: 1px solid var(--accent);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: var(--font-main);
+            font-weight: 600;
+            font-size: .85rem;
+            transition: background .2s, transform .15s;
+        }
+
+        .back-link:hover {
+            background: #f0ece6;
+            transform: translateY(-1px);
+        }
+
+        /* ── Ranking list items ─────────────────────────────── */
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            padding: .6rem 0;
+            border-bottom: 1px solid #e8e4e0;
+        }
+
+        .ranking-item:last-child {
+            border-bottom: none;
+        }
+
+        .ranking-num {
+            min-width: 26px;
+            height: 26px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: .75rem;
+            border: 1px solid var(--accent);
+            background: var(--bg-panel);
+        }
+
+        .ranking-label {
+            flex: 1;
+            font-weight: 600;
+            font-size: .9rem;
+        }
+
+        .ranking-count {
+            font-weight: 800;
+            min-width: 28px;
+            text-align: right;
+            font-size: .95rem;
+        }
+
+        .ranking-pct {
+            font-size: .75rem;
+            color: var(--text-muted);
+            min-width: 42px;
+            text-align: right;
+        }
+
+        /* ── Loader ─────────────────────────────────────────── */
+        .chart-loader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            color: var(--text-muted);
+            gap: .5rem;
+        }
+
+        .chart-loader .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: bounce .6s infinite alternate;
+        }
+
+        .chart-loader .dot:nth-child(2) {
+            animation-delay: .15s;
+        }
+
+        .chart-loader .dot:nth-child(3) {
+            animation-delay: .3s;
+        }
+
+        @keyframes bounce {
+            to {
+                transform: translateY(-10px);
+                opacity: .4;
+            }
+        }
+
+        /* ── Mobile tweaks ──────────────────────────────────── */
+        @media (max-width: 480px) {
+            .chart-card {
+                padding: 1rem;
+            }
+
+            .stats-ribbon {
+                gap: .6rem;
+            }
+
+            .stat-card {
+                padding: .5rem .9rem;
+                min-width: 85px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── Hero ──────────────────────────────────────── -->
+    <header class="chart-hero">
+        <p class="eyebrow">Estadístiques</p>
+        <h1>Cómics por Serie</h1>
+        <p class="hero-copy">Visión xeneral de la to coleición de BD</p>
+
+        <div class="stats-ribbon" id="stats-ribbon">
+            <!-- filled by JS -->
+        </div>
+    </header>
+
+    <!-- ── Charts ────────────────────────────────────── -->
+    <section class="chart-section">
+
+        <!-- Bar chart -->
+        <div class="chart-card">
+            <h2>
+                <span class="icon"><i class="fa-solid fa-chart-column"></i></span>
+                Cómics por Serie
+            </h2>
+            <div class="canvas-wrap">
+                <div class="chart-loader" id="loader-bar">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                </div>
+                <canvas id="graficoSeries" style="display:none"></canvas>
+            </div>
+        </div>
+
+        <!-- Secondary row: doughnut + ranking -->
+        <div class="chart-grid">
+            <div class="chart-card">
+                <h2>
+                    <span class="icon"><i class="fa-solid fa-chart-pie"></i></span>
+                    Distribución
+                </h2>
+                <div class="canvas-wrap">
+                    <canvas id="graficoDoughnut"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h2>
+                    <span class="icon"><i class="fa-solid fa-ranking-star"></i></span>
+                    Top Series
+                </h2>
+                <ul id="ranking-list" style="list-style:none;padding:0;margin:0;"></ul>
+            </div>
+        </div>
+    </section>
+
+    <a href="index.html" class="back-link" aria-label="Volver al inicio">
+        <i class="fa-solid fa-arrow-left"></i> Volver
+    </a>
+    <!-- menu -->
+
+    <div id="menu-app">
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fa-solid fa-house" style="color: black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="nuevatienda.html">
+                        <i class="fa-solid fa-shop" style="color:black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="nuevabd.html">
+                        <i class="fa-solid fa-book" style="color:black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="graficos.html">
+                        <i class="fa-solid fa-chart-column" style="color:black;"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- fin de menu -->
+    <!-- ── Scripts ───────────────────────────────────── -->
+    <script defer src="bdColeccion.js?v=20260419"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            /* ── 1. Count comics per series ───────────────── */
+            const conteoSeries = {};
+            bdColeccion.forEach(item => {
+                conteoSeries[item.serie] = (conteoSeries[item.serie] || 0) + 1;
+            });
+
+            const labels = Object.keys(conteoSeries);
+            const data = Object.values(conteoSeries);
+            const totalComics = data.reduce((a, b) => a + b, 0);
+            const totalSeries = labels.length;
+
+            /* ── 2. Palette (warm, elegant for white bg) ──── */
+            const palette = [
+                "#FF90E8",  /* near-black  */
+                "#22a091",  /* saddle brown */
+                "#91a8f1",  /* warm orange  */
+                "#ffc904",  /* sienna       */
+                "#e1472e",  /* dark tan     */
+            ];
+
+            const bgColors = labels.map((_, i) => palette[i % palette.length]);
+            const bgColorsAlpha = bgColors.map(c => c + "cc");
+
+            /* ── 3. Stats ribbon ──────────────────────────── */
+            const ribbon = document.getElementById("stats-ribbon");
+
+            ribbon.innerHTML = `
+                <article class="stat-card">
+                    <span class="stat-value">${totalComics}</span>
+                    <span class="stat-label">Tomos</span>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-value">${totalSeries}</span>
+                    <span class="stat-label">Series</span>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-value">${Math.max(...data)}</span>
+                    <span class="stat-label">Máx. por serie</span>
+                </article>
+            `;
+
+            /* ── 4. Chart.js defaults ─────────────────────── */
+            Chart.defaults.color = "#444";
+            Chart.defaults.font.family = "'Avenir Next', 'Segoe UI', sans-serif";
+            Chart.defaults.font.weight = 500;
+
+            /* ── 5. Bar chart ─────────────────────────────── */
+            const canvasBar = document.getElementById("graficoSeries");
+            document.getElementById("loader-bar").remove();
+            canvasBar.style.display = "block";
+
+            new Chart(canvasBar, {
+                type: "bar",
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: "Número de cómics",
+                        data: data,
+                        backgroundColor: bgColorsAlpha,
+                        borderColor: bgColors,
+                        borderWidth: 2,
+                        borderRadius: 6,
+                        hoverBackgroundColor: bgColors,
+                        maxBarThickness: 80,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    aspectRatio: labels.length > 6 ? 2 : 2.2,
+                    animation: {
+                        duration: 900,
+                        easing: "easeOutQuart"
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: "#fff",
+                            titleColor: "#1a1a1a",
+                            bodyColor: "#1a1a1a",
+                            borderColor: "#000",
+                            borderWidth: 1,
+                            cornerRadius: 8,
+                            padding: 12
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: "rgba(0,0,0,.06)" },
+                            ticks: { font: { weight: 600 }, color: "#333" }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: "rgba(0,0,0,.06)" },
+                            ticks: {
+                                stepSize: 5,
+                                precision: 0,
+                                color: "#333"
+                            }
+                        }
+                    }
+                }
+            });
+
+            /* ── 6. Doughnut chart ────────────────────────── */
+            new Chart(document.getElementById("graficoDoughnut"), {
+                type: "doughnut",
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: bgColors,
+                        borderColor: "#fff",
+                        borderWidth: 3,
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    cutout: "62%",
+                    animation: { animateRotate: true, duration: 1100 },
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                            labels: {
+                                padding: 16,
+                                usePointStyle: true,
+                                pointStyleWidth: 12,
+                                color: "#333",
+                                font: { size: 12, weight: 600 }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: "#fff",
+                            titleColor: "#1a1a1a",
+                            bodyColor: "#1a1a1a",
+                            borderColor: "#000",
+                            borderWidth: 1,
+                            cornerRadius: 8,
+                            padding: 12,
+                            callbacks: {
+                                label: ctx => ` ${ctx.label}: ${ctx.parsed} cómics (${((ctx.parsed / totalComics) * 100).toFixed(1)}%)`
+                            }
+                        }
+                    }
+                }
+            });
+
+            /* ── 7. Ranking list ──────────────────────────── */
+            const ranking = labels
+                .map((label, i) => ({ label, count: data[i] }))
+                .sort((a, b) => b.count - a.count);
+
+            const rankingList = document.getElementById("ranking-list");
+            ranking.forEach((item, i) => {
+                const pct = ((item.count / totalComics) * 100).toFixed(1);
+                const color = palette[labels.indexOf(item.label) % palette.length];
+                const li = document.createElement("li");
+                li.className = "ranking-item";
+                li.innerHTML = `
+                    <span class="ranking-num" style="color:${color}; border-color:${color};">${i + 1}</span>
+                    <span class="ranking-label">${item.label}</span>
+                    <span class="ranking-count" style="color:${color};">${item.count}</span>
+                    <span class="ranking-pct">${pct}%</span>
+                `;
+                rankingList.appendChild(li);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

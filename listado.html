@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#c65d2e">
+    <meta name="description" content="Xestiona la to coleición de  D y TU repertorio de tiendas de cómic.">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/icon-192.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/icon-192.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>BD Tracker</title>
+</head>
+
+<body class="listado form-page" data-source="mysql">
+    <main class="form-shell">
+        <section  class="panel">
+        <div class="table-shell">
+            <div class="result-summary" id="resumen-bd">
+                <img src="" alt="">
+                <h2 class="titulu"><strong></strong> <span id="resumen-serie"></span></h2>
+                <p><strong></strong> <span id="resumen-autor"></span></p>
+                <p><strong>Ed:</strong> <span id="resumen-editorial"></span></p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Títulu</th>
+                        <th>Estáu</th>
+                        <th>Tieneslu</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-bd"></tbody>
+
+            </table>
+
+        </div>
+        <div>
+        <a href="index.html" class="back-link" aria-label="Volver al inicio">
+        <i class="fa-solid fa-arrow-left"></i> Volver
+    </a>
+        </div>
+        </section>
+    </main>
+    <!-- menu -->
+
+    <div id="menu-app">
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fa-solid fa-house" style="color: black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="nuevatienda.html">
+                        <i class="fa-solid fa-shop" style="color:black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="nuevabd.html">
+                        <i class="fa-solid fa-book" style="color:black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="graficos.html">
+                        <i class="fa-solid fa-chart-column" style="color:black;"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- fin de menu -->
+	    <script defer src="bdColeccion.js?v=20260419"></script>
+	    <script defer src="app.js?v=20260419"></script>
+	</body>
+
+	</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#c65d2e">
+    <meta name="description" content="Xestiona la to coleición de BD y TU repertorio de tiendas de cómic.">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/icon-192.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/icon-192.svg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
+    <title>BD Tracker</title>
+</head>
+
+<body class="form-page">
+    <main class="form-shell">
+	        <section class="panel">
+	            <div class="section-heading">
+	                <div>
+	                    <p class="eyebrow">Repertoriu</p>
+	                    <h2>Añadir tienda</h2>
+	                </div>
+	            </div>
+
+	            <form id="form-tienda" class="stack-form">
+	                <label for="nombre-tienda">Nome</label>
+	                <input type="text" id="nombre-tienda" name="nombre" placeholder="Librairie du Centre" required>
+
+	                <label for="tipo-tienda">Tienda</label>
+	                <select id="tipo-tienda" name="tipo" required>
+	                    <option value="">-- Escueye un tipu --</option>
+	                    <option value="online">Online</option>
+	                    <option value="fisica">Física</option>
+	                </select>
+
+	                <label for="web-tienda">Web</label>
+	                <input type="url" id="web-tienda" name="web" placeholder="https://...">
+
+	                <label for="direccion-tienda">Direición</label>
+	                <input type="text" id="direccion-tienda" name="direccion" placeholder="12 Rue de la BD">
+
+	                <label for="selector-pais">País</label>
+	                <select id="selector-pais" name="pais">
+	                    <option value="">-- Escueye un país --</option>
+	                </select>
+
+	                <label for="selector-ciudad">Ciudá</label>
+	                <select id="selector-ciudad" name="ciudad" disabled>
+	                    <option value="">-- Primero escueye país --</option>
+	                </select>
+
+	                <button type="submit" class="back-link">Guardar tienda</button>
+	            </form>
+           <a href="index.html" class="back-link" aria-label="Volver al inicio">
+        <i class="fa-solid fa-arrow-left"></i> Volver
+    </a>
+
+        </section>
+
+    </main>
+
+	    <div id="menu-app">
+	        <nav>
+	            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fa-solid fa-house" style="color: black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="nuevatienda.html">
+                        <i class="fa-solid fa-shop" style="color:black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="nuevabd.html">
+                        <i class="fa-solid fa-book" style="color:black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="graficos.html">
+                        <i class="fa-solid fa-chart-column" style="color:black;"></i>
+                    </a>
+                </li>
+            </ul>
+	        </nav>
+	    </div>
+	    <script defer src="bdColeccion.js?v=20260419"></script>
+	    <script defer src="app.js?v=20260419"></script>
+	</body>
+
+	</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#c65d2e">
+    <meta name="description" content="Xestiona la to coleición de BD y TU repertorio de tiendas de cómic.">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/icon-192.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/icon-192.svg">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- cargarmos fontawesome para iconitos-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>BD Tracker</title>
+</head>
+</head>
+
+	<body data-page="tiendas">
+	    <div class="app-shell">
+	        <header class="hero">
+	            <div>
+	                <p class="eyebrow">Mis tiendas</p>
+	                <p class="hero-copy" id="tiendas-filtro"></p>
+	            </div>
+	        </header>
+	
+	        <main class="main-grid">
+	            <section class="panel">
+	                <div class="section-heading">
+	                    <div>
+	                        <h2>Listado</h2>
+	                        <p class="eyebrow">Solo online o física según el filtro</p>
+	                    </div>
+	                </div>
+	
+	                <ul id="lista-tiendas" class="store-list"></ul>
+	                <a href="index.html" class="back-link" aria-label="Volver al inicio">
+        <i class="fa-solid fa-arrow-left"></i> Volver
+    </a>
+	                </a>
+	            </section>
+	        </main>
+	        <footer>
+	
+	        </footer>
+        <script defer src="bdColeccion.js?v=20260419"></script>
+        <script defer src="app.js?v=20260419"></script>
+</body>
+<!-- menu -->
+
+    <div id="menu-app">
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fa-solid fa-house" style="color: black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="nuevatienda.html">
+                        <i class="fa-solid fa-shop" style="color:black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="nuevabd.html">
+                        <i class="fa-solid fa-book" style="color:black;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="graficos.html">
+                        <i class="fa-solid fa-chart-column" style="color:black;"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- fin de menu -->
+</html>
