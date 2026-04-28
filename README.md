@@ -26,9 +26,9 @@ JSON
 <ins>Tipografía</ins>:League Spartan (vía Google Fonts). 
 
 
-**Cómo instalar la pwa  **
+**Cómo instalar la pwa**
 
-en Android
+<ins>en Android</ins>
 
 Cómo hacerlo
 Abre en Chrome la web que quieras usar como PWA.
