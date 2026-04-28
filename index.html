@@ -51,6 +51,7 @@
         <main class="main-grid">
 
 
+            <!----Parte CONSULTA BD----->
             <section id="coleccion" class="panel">
                 <div class="section-heading">
                     <div>
@@ -86,15 +87,15 @@
                     </select>
                     <br>
                     <ul>
-                        <li> <a href="listado.html" id="btn-cambio-bd" class="btnuno back-link"
-                                data-action="guardar-busqueda"
+                        <li> <a href="listado.html" id="btn-cambio-bd" class="btnuno"
+                                style="background: #ff4d4d; data-action=" guardar-busqueda"
                                 aria-label="collecionBD">Cambio</a><!--pagina para modificar -->
                         </li>
-                        <li> <a href="listbd.html" id="btn-buscar-bd" class="btnuno back-link"
-                                data-action="guardar-busqueda"
+                        <li> <a href="listbd.html" id="btn-buscar-bd" class="btnuno" data-action="guardar-busqueda"
                                 aria-label="collecionBD">Buscar</a><!--pagina para consultar -->
                         </li>
-                        <li> <a href="nuevabd.html" class="btnuno back-link" aria-label="Añadir BD">Añadir</a>
+                        <li> <a href="nuevabd.html" class="btnuno" aria-label="Añadir BD"
+                                style="background: #ff00f5;">Añadir</a>
                         </li>
                     </ul>
 
@@ -102,7 +103,7 @@
 
             </section>
 
-
+            <!----Parte repertoriu de tiendes----->
 
             <section id="tiendas" class="panel">
                 <div class="section-heading">
@@ -132,9 +133,10 @@
                 </div>
                 <br>
                 <ul id="lista-tiendas-guardadas" class="store-list"></ul>
-                <a href="tiendas.html" id="btn-mostrar-tiendas" class="back-link" data-action="mostrar-tiendas"
+                <a href="tiendas.html" id="btn-mostrar-tiendas" class="btnuno back-link" data-action="mostrar-tiendas"
                     aria-label="Mostrar tiendas">Mostrar</a>
-                <a href="nuevatienda.html" class="back-link" aria-label="Añadir tienda">Añadir</a>
+                <a href="nuevatienda.html" class="btnuno back-link" style="background: #ff00f5; aria-label=" Añadir
+                    tienda">Añadir</a>
 
             </section>
         </main>

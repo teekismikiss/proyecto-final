@@ -835,13 +835,38 @@ function renderizarResumenColeccion(comics) {
     const resumenSerie = $("#resumen-serie");
     const resumenAutor = $("#resumen-autor");
     const resumenEditorial = $("#resumen-editorial");
+    const contenedorResumen = $("#resumen-bd");
+
     if (!resumenSerie || !resumenAutor || !resumenEditorial) {
         return;
     }
 
-    resumenSerie.textContent = [...new Set(comics.map((comic) => comic.serie).filter(Boolean))].join(", ") || "-";
+    const seriesPresentes = [...new Set(comics.map((comic) => comic.serie).filter(Boolean))];
+    const serieUnica = seriesPresentes.length === 1 ? seriesPresentes[0] : null;
+
+    resumenSerie.textContent = seriesPresentes.join(", ") || "-";
     resumenAutor.textContent = [...new Set(comics.map((comic) => comic.autor).filter(Boolean))].join(", ") || "-";
     resumenEditorial.textContent = [...new Set(comics.map((comic) => comic.editorial || "Ensin editorial"))].join(", ") || "-";
+
+    if (contenedorResumen) {
+        const fondos = {
+            "Natacha": "img/natacha-bd.png",
+            "Yoko Tsuno": "img/yoko-tsuno.png",
+            "Blacksad": "img/blacksad-bd.png",
+            "Superlópez": "img/superlopez.png",
+            "Blake & Mortimer": "img/blakemortimer.png"
+        };
+
+        const rutaImagen = fondos[serieUnica];
+
+        if (rutaImagen) {
+            contenedorResumen.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${rutaImagen}')`;
+            contenedorResumen.style.backgroundSize = "cover";
+            contenedorResumen.style.backgroundPosition = "center";
+        } else {
+            contenedorResumen.style.backgroundImage = "none";
+        }
+    }
 }
 
 function toggleTieneslu(id) {

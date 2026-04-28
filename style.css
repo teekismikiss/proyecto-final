@@ -1,3 +1,19 @@
+html::before {
+  content: 'CodePen ♥ The Web';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  font-family: monospace;
+  opacity: 0.6;
+  background: rebeccapurple;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
 :root {
   --bg: #5ad6f8;
   --bg-panel: white;
@@ -36,6 +52,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--ve);
 }
 
 body {
@@ -43,7 +60,7 @@ body {
   min-height: 100vh;
   font-family: var(--font-main);
   color: var(--text);
-  background: var(--bg-panel-strong);
+  background: var(--ve);
 }
 
 body.form-page {
@@ -51,7 +68,7 @@ body.form-page {
   flex-direction: column;
 }
 
-.form-page:hover {
+.form-page {
   background: var(--ve);
 }
 
@@ -75,7 +92,7 @@ select {
   width: min(720px, calc(100% - 24px));
   margin: 0 auto;
   padding: 24px 0 120px;
-  
+
 }
 
 .top {
@@ -87,7 +104,7 @@ select {
 .hero,
 .panel {
   border: 1px solid var(--line);
-  background: var(--bg-panel);
+  background: var(--yel);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
 }
@@ -237,7 +254,9 @@ h1 {
   background: var(--yel);
 }
 
-.nuevoshop{  background: var(--yel);}
+.nuevoshop {
+  background: var(--yel);
+}
 
 input,
 select {
@@ -355,9 +374,12 @@ ul {
   color: var(--danger);
 }
 
+.btnuno:hover,
 .primary-btn:hover,
 .ghost-btn:hover,
-.danger-btn:hover {
+.danger-btn:hover,
+.back-link:hover {
+  background: var(--pu) !important;
   transform: translateY(-1px);
 }
 
@@ -379,9 +401,8 @@ ul {
   transition: background .2s, transform .15s;
 }
 
-.back-link:hover {
-  background: var(--pu);
-  transform: translateY(-1px);
+ul.lista-tiendas-guardadas {
+  margin-top: 10px;
 }
 
 RESPONSIVE */ .table-shell {
@@ -402,6 +423,8 @@ RESPONSIVE */ .table-shell {
 
 #resumen-bd {
   color: var(--bg-panel);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  transition: background 0.3s ease;
 }
 
 .result-summary p {
