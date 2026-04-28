@@ -51,6 +51,14 @@ body.form-page {
   flex-direction: column;
 }
 
+.form-page:hover {
+  background: var(--ve);
+}
+
+
+
+
+
 button,
 input,
 select {
@@ -67,6 +75,7 @@ select {
   width: min(720px, calc(100% - 24px));
   margin: 0 auto;
   padding: 24px 0 120px;
+  
 }
 
 .top {
@@ -228,12 +237,14 @@ h1 {
   background: var(--yel);
 }
 
+.nuevoshop{  background: var(--yel);}
+
 input,
 select {
   width: 100%;
   max-width: 100%;
   border: 1px solid var(--line);
-  background: var(--bg-panel-strong);
+  background: var(--pu);
   color: var(--text);
   border-radius: var(--radius-sm);
   padding: 13px 14px;
