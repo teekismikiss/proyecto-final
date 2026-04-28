@@ -19,12 +19,16 @@ PHP
 MySQL     
 JSON      
 
-**Diseño**  
+### <ins>Diseño</ins>  
 <ins>Diseño</ins>: moderno y simple. Inspirado en neo brutalismo.  
-<ins>Colores principales</ins>: Blanco y negro.   
 <ins>Iconografía</ins>: FontAwesome 7.0.1.  
 <ins>Tipografía</ins>:League Spartan (vía Google Fonts). 
 
+El diseño es "Old School" y minimalista. El enfoque prioriza la gestión de datos masivos sobre la ornamentación visual, alejándose deliberadamente de las tendencias de diseño efímeras y de efectos visuales complejos que puedan comprometer el rendimiento. El objetivo principal es garantizar la máxima rapidez y claridad en la consulta de información.
+el diseño implementa una navegación por etiquetas y filtros. En lugar de una exploración aleatoria, la interfaz está diseñada para un usuario experto que busca precisión, permitiendo organizar y localizar registros mediante criterios específicos de forma inmediata.
+
+<ins>Accesibilidad Semántica</ins>: Implementación de atributos aria-label en elementos interactivos.
+<ins>Visualización de Estados</ins>: El sistema utiliza indicadores visuales (basados en el campo booleano tieneslu) para ofrecer un feedback inmediato sobre el estado de la colección. Mediante el uso de códigos de color, el usuario puede identificar de un vistazo las carencias y existencias en su inventario.
 
 
 
