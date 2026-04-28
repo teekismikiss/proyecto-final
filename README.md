@@ -30,17 +30,25 @@ JSON
 
 <ins>en Android</ins>
 
-Cómo hacerlo
-Abre en Chrome la web que quieras usar como PWA.
+- Abre en Chrome la web que quieras usar como PWA.
 
-Toca el menú de los tres puntos arriba a la derecha.
+- Toca el menú de los tres puntos arriba a la derecha.
 
-Pulsa “Añadir a pantalla de inicio” o la opción de instalar si Chrome la muestra.
+- Pulsa “Añadir a pantalla de inicio” o la opción de instalar si Chrome la muestra.
 
-Confirma con “Agregar” o “Instalar”.
+- Confirma con “Agregar” "Añadir" o “Instalar”.
 
-La app quedará en la pantalla de inicio y, en algunos casos, también en el cajón de aplicaciones.
+  La app quedará en la pantalla de inicio.
+  
+<ins>en IOS </ins>
 
+- Abre en Safari la web que quieras usar como PWA.
+
+- Toca el botón de Compartir.
+
+- Baja en el menú y pulsa “Añadir a pantalla de inicio”.
+
+La app quedará en la pantalla de inicio.
 
 
 ### <ins>Paginas esenciales para el frontend</ins>  
