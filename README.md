@@ -26,7 +26,20 @@ JSON
 <ins>Tipografía</ins>:League Spartan (vía Google Fonts). 
 
 
+**Cómo instalar la pwa  **
 
+en Android
+
+Cómo hacerlo
+Abre en Chrome la web que quieras usar como PWA.
+
+Toca el menú de los tres puntos arriba a la derecha.
+
+Pulsa “Añadir a pantalla de inicio” o la opción de instalar si Chrome la muestra.
+
+Confirma con “Agregar” o “Instalar”.
+
+La app quedará en la pantalla de inicio y, en algunos casos, también en el cajón de aplicaciones.
 
 
 
