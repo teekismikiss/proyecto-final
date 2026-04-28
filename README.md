@@ -26,29 +26,6 @@ JSON
 <ins>Tipografía</ins>:League Spartan (vía Google Fonts). 
 
 
-**Cómo instalar la pwa**
-
-<ins>en Android</ins>
-
-- Abre en Chrome la web que quieras usar como PWA.
-
-- Toca el menú de los tres puntos arriba a la derecha.
-
-- Pulsa “Añadir a pantalla de inicio” o la opción de instalar si Chrome la muestra.
-
-- Confirma con “Agregar” "Añadir" o “Instalar”.
-
-  La app quedará en la pantalla de inicio.
-  
-<ins>en IOS </ins>
-
-- Abre en Safari la web que quieras usar como PWA.
-
-- Toca el botón de Compartir.
-
-- Baja en el menú y pulsa “Añadir a pantalla de inicio”.
-
-La app quedará en la pantalla de inicio.
 
 
 ### <ins>Paginas esenciales para el frontend</ins>  
@@ -132,3 +109,26 @@ flowchart TD
     %% 3. Ajustamos específicamente el Menu (esto sobrescribe el width de la clase)
     style Menu stroke-width:3px
 ```
+####Cómo instalar la pwa
+
+<ins>en Android</ins>
+
+- Abre en Chrome la web que quieras usar como PWA.
+
+- Toca el menú de los tres puntos arriba a la derecha.
+
+- Pulsa “Añadir a pantalla de inicio” o la opción de instalar si Chrome la muestra.
+
+- Confirma con “Agregar” "Añadir" o “Instalar”.
+
+  La app quedará en la pantalla de inicio.
+  
+<ins>en IOS </ins>
+
+- Abre en Safari la web que quieras usar como PWA.
+
+- Toca el botón de Compartir.
+
+- Baja en el menú y pulsa “Añadir a pantalla de inicio”.
+
+La app quedará en la pantalla de inicio.
