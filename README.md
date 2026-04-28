@@ -109,6 +109,7 @@ flowchart TD
     %% 3. Ajustamos específicamente el Menu (esto sobrescribe el width de la clase)
     style Menu stroke-width:3px
 ```
+----
 ### <ins> Cómo instalar la pwa </ins>
 
 <ins>en Android</ins>
