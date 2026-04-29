@@ -80,10 +80,13 @@ funciones.php()
      
     }
 
-Repertorio <|-- Local
-    Repertorio : tiendas.html
+   NuevoTebeo <|-- Local
+    NuevoTebeo  : 
     NuevaTienda <|-- Local
     NuevaTienda : nuevatienda.html
+ Repertorio <|-- Local
+    Repertorio : tiendas.html
+    
     class Local{
       -bdColeccion.js
       -App.js()
