@@ -1,4 +1,6 @@
-[BDtracker ([url](https://teeki.es/BD/))# PROYECTO FINAL 
+ # PROYECTO FINAL  
+ [BDtracker ([url](https://teeki.es/BD/))  
+ 
 **BDtracker** es una aplicación web (PWA) diseñada para una persona en concreto;para ayudarle a gestionar sus colección de bande dessinées (tebeos) y  repertorio de las tiendas de comics que encuentra durante sus viajes.
 
 
@@ -20,7 +22,7 @@ MySQL
 JSON      
 
 ### <ins>Diseño</ins>  
-<ins>Diseño</ins>: moderno y simple. Inspirado en neo brutalismo.  
+<ins>Diseño</ins>: moderno y simple. Inspirado en el Neubrutalismo Digital.  
 <ins>Iconografía</ins>: FontAwesome 7.0.1.  
 <ins>Tipografía</ins>:League Spartan (vía Google Fonts). 
 
@@ -30,7 +32,7 @@ el diseño implementa una navegación por etiquetas y filtros. En lugar de una e
 <ins>Accesibilidad Semántica</ins>: Implementación de atributos aria-label en elementos interactivos.
 <ins>Visualización de Estados</ins>: El sistema utiliza indicadores visuales (basados en el campo booleano tieneslu) para ofrecer un feedback inmediato sobre el estado de la colección. Mediante el uso de códigos de color, el usuario puede identificar de un vistazo las carencias y existencias en su inventario.
 
-
+Neubrutalismo Digital: una tendencia popularizada a principios de la década de 2020. Estilo que rechaza los degradados y sombras suaves del diseño convencional en favor de una honestidad estructural.Se manifiesta a través del uso de colores planos de alta saturación, una tipografía clara y una jerarquía visual que prioriza la arquitectura de la base de datos sobre la estética ornamental.
 
 ### <ins>Paginas esenciales para el frontend</ins>  
 
