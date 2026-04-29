@@ -95,7 +95,7 @@ funciones.php()
 ```
 
 
-Las informaciones (nueveo tebeo, nueva tien)que añade el usuario se guardan en local.
+Las informaciones (nueveo tebeo, nueva tienda)que añade el usuario se guardan en local.Los datos de los tebeos provienen de la base de datos (sql)
 
 ____
 
