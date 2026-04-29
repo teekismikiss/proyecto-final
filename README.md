@@ -93,6 +93,10 @@ funciones.php()
     }
   
 ```
+
+
+Las informaciones (nueveo tebeo, nueva tien)que añade el usuario se guardan en local.
+
 ____
 
 
