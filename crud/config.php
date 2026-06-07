@@ -4,8 +4,6 @@ mysqli_report(MYSQLI_REPORT_OFF);
 
 define("FALLBACK_JSON_FILE", dirname(__DIR__) . "/data/bdColeccion.json");
 
-// CDMON
-;
 
 // Infinity
 /;
