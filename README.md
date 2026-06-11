@@ -38,17 +38,17 @@ Neubrutalismo Digital: una tendencia popularizada a principios de la década de 
 
   La interfaz se organiza de forma jerárquica a partir de la página principal, que enlaza con dos secciones principales: Tebeos y Tiendas. Cada sección contiene las acciones disponibles para el usuario, como consultar listados, buscar información, añadir nuevos registros y acceder a fichas detalladas. Esta estructura facilita una navegación clara y separa las funciones según el tipo de contenido gestionado.
 
-```mermaid
 graph TD;
-    Homepage--> Tebeos;
-    Homepage-->Tiendas;
-    Tebeos-->|Cambio|FichaTebeo;
-    Tebeos--> |Buscar| Collecion;
-     Tebeos--> |Añadir|NuevoTebeo ;
-    Tebeos-->|Exportar|formato csv;
-    Tiendas--> |Mostrar|Repertorio;
-    Tiendas-->|Añadir|FichaTienda;
-```
+    Homepage --> Tebeos;
+    Homepage --> Tiendas;
+
+    Tebeos -->|Cambio| FichaTebeo;
+    Tebeos -->|Buscar| Coleccion;
+    Tebeos -->|Añadir| NuevoTebeo;
+    Tebeos -->|Exportar| CSV;
+
+    Tiendas -->|Mostrar| Repertorio;
+    Tiendas -->|Añadir| FichaTienda;
 
 ### <ins>Paginas para el Backend</ins>
 
