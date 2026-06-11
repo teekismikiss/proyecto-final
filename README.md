@@ -124,6 +124,78 @@ flowchart TD
     style Menu stroke-width:3px
 ```
 ----
+#  Cómo usar
+
+### Añadir un cómic
+
+1. Navega a **Añadir BD** desde la página principal
+2. Completa los campos: serie, título, autor y editorial
+3. Selecciona el estado (Nuevu, Como nuevu, Bon estáu, Gastáu)
+4. Marca si lo tienes en tu colección
+5. Haz clic en "Guardar"
+
+### Consultar la colección
+
+1. En **Consultar BD** usa los filtros:
+   - Busca por serie, título, autor o editorial
+   - Filtra por serie específica
+   - Filtra por estado de conservación
+   - Muestra solo los que tienes o los que te faltan
+2. Haz clic en una serie de los accesos rápidos o usa los filtros
+3. Haz clic en **Buscar** para ver resultados
+
+### Editar la colección
+
+1. Ve a **Cambio** (página de edición)
+2. Los cómics con fondo verde son los que tienes
+3. Cambia el estado desde el selector
+4. Haz clic en el botón para marcar si lo tienes o no
+
+### Gestionar tiendas
+
+1. **Añadir**: Ve a **Añadir Tienda** y completa el formulario
+2. **Consultar**: Usa **Mis Tiendas** en el inicio para ver la lista
+3. **Filtrar**: Filtra por país y ciudad
+4. **Editar/Borrar**: En la página de tiendas puedes editar o eliminar
+
+### Exportar datos
+
+- En **Consultar BD** o **Tiendas**, usa el botón **Exportar** para descargar un CSV
+- En la página principal, el botón **Exportar** bajo "Consultar BD" exporta la colección actual
+
+## Exportación CSV
+
+Los archivos CSV incluyen:
+
+**Colección**: Título, Serie, Autor, Editorial, Estado, ¿Lo tienes?, Fecha de registro
+
+**Tiendas**: Nombre, Tipo, Web, Dirección, País, Ciudad, Fecha de registro
+
+Los archivos se descargan automáticamente con la fecha del día.
+
+##  Estructura técnica
+
+- **Frontend**: HTML, CSS, JavaScript vanilla
+- **Almacenamiento**: LocalStorage (navegador)
+- **PWA**: Service Worker para funcionamiento offline
+- **Backend opcional**: PHP con MySQL (en `crud/`)
+- **Iconografía**: Font Awesome 7
+
+### Archivos principales
+
+```
+public/
+├── index.html              # Inicio
+├── app.js                  # Lógica principal
+├── csv-utils.js            # Exportación a CSV
+├── style.css               # Estilos
+├── bdColeccion.js          # Datos iniciales
+├── sw.js                   # Service Worker
+├── manifest.json           # Configuración PWA
+├── crud/                   # Backend PHP
+└── img/                    # Imágenes
+```
+----
 ### <ins> Cómo instalar la pwa </ins>
 
 <ins>en Android</ins>
