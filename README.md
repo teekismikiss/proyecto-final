@@ -22,7 +22,7 @@ MySQL
 JSON      
 
 ### <ins>Diseño</ins>  
-<ins>Diseño</ins>: moderno y simple. Inspirado en el Neubrutalismo Digital.  
+<ins>Diseño</ins>: moderno y simple. Inspirado en el Neubrutalismo Digital y el los tebeos.  
 <ins>Iconografía</ins>: FontAwesome 7.0.1.  
 <ins>Tipografía</ins>:League Spartan (vía Google Fonts). 
 
