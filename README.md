@@ -195,6 +195,48 @@ public/
 ├── crud/                   # Backend PHP
 └── img/                    # Imágenes
 ```
+
+##  Tebeos que viene por defecto
+
+- Natacha
+- Yoko Tsuno
+- Blake & Mortimer
+- Superlópez
+- Blacksad
+- Y cualquier otra serie que añadas
+
+Cada serie tiene una imagen de portada. Las series no reconocidas muestran una imagen por defecto.
+
+## Datos
+
+- Los datos se guardan automáticamente en el navegador
+- Se mantienen entre sesiones
+- Se pueden exportar en cualquier momento
+- Los datos están protegidos a nivel de navegador
+
+## Estados de conservación
+
+- **Nuevu**: En perfecto estado, sin usar
+- **Como nuevu**: Prácticamente sin uso
+- **Bon estáu**: En buen estado, con poco uso
+- **Gastáu**: Con señales de uso
+
+## Compatibilidad
+
+- Navegadores modernos (Chrome, Firefox, Safari, Edge)
+- Funciona en móvil y tablet
+- Soporte PWA: instálable como app nativa
+
+##  Atajos
+
+- Desde la página principal, haz clic en el nombre de una serie para filtrar por ella
+- Los filtros se guardan automáticamente al cambiar
+
+##  Notas
+
+- La aplicación usa almacenamiento local del navegador; los datos no se syncronizan entre dispositivos
+- Es posible conectar una base de datos MySQL para sincronización
+- El Service Worker cachea los recursos para funcionamiento offline
 ----
 ### <ins> Cómo instalar la pwa </ins>
 
