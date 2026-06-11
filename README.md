@@ -45,6 +45,7 @@ graph TD;
     Tebeos-->|Cambio|FichaTebeo;
     Tebeos--> |Buscar| Collecion;
      Tebeos--> |Añadir|NuevoTebeo ;
+     Tebeos--> |Exportar|formato csv ;
     Tiendas--> |Mostrar|Repertorio;
     Tiendas-->|Añadir|FichaTienda;
 ```
