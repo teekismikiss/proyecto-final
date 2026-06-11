@@ -37,7 +37,7 @@ Neubrutalismo Digital: una tendencia popularizada a principios de la década de 
 ### <ins>Paginas esenciales para el frontend</ins>  
 
   La interfaz se organiza de forma jerárquica a partir de la página principal, que enlaza con dos secciones principales: Tebeos y Tiendas. Cada sección contiene las acciones disponibles para el usuario, como consultar listados, buscar información, añadir nuevos registros y acceder a fichas detalladas. Esta estructura facilita una navegación clara y separa las funciones según el tipo de contenido gestionado.
-
+```mermaid
 graph TD;
     Homepage --> Tebeos;
     Homepage --> Tiendas;
@@ -49,7 +49,7 @@ graph TD;
 
     Tiendas -->|Mostrar| Repertorio;
     Tiendas -->|Añadir| FichaTienda;
-
+```
 ### <ins>Paginas para el Backend</ins>
 
 Para el backend: una solución híbrida en la que cada tecnología se utiliza según las necesidades reales de cada parte del sistema.  
