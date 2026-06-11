@@ -41,16 +41,17 @@
             </table>
 
         </div>
-        <div>
-        <a href="index.html" class="back-link" aria-label="Volver al inicio">
-        <i class="fa-solid fa-arrow-left"></i> Volver
-    </a>
+        <div class="row-actions">
+            <button type="button" id="btn-exportar-csv" class="back-link" data-export="coleccion">Exportar</button>
+            <a href="index.html" class="back-link" aria-label="Volver al inicio">
+                <i class="fa-solid fa-arrow-left"></i> Volver
+            </a>
         </div>
         </section>
     </main>
     <!-- menu -->
 
-    <div id="menu-app">
+  <div id="menu-app">
         <nav>
             <ul>
                 <li>
@@ -59,12 +60,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="nuevatienda.html">
+                    <a href="tiendas.html">
                         <i class="fa-solid fa-shop" style="color:black;"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="nuevabd.html">
+                    <a href="listbd.html">
                         <i class="fa-solid fa-book" style="color:black;"></i>
                     </a>
                 </li>
@@ -78,7 +79,8 @@
     </div>
     <!-- fin de menu -->
 	    <script defer src="bdColeccion.js?v=20260419"></script>
-	    <script defer src="app.js?v=20260419"></script>
+	    <script defer src="csv-utils.js?v=20260611"></script>
+	    <script defer src="app.js?v=20260611"></script>
 	</body>
 
 	</html>

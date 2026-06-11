@@ -177,6 +177,14 @@ function enlazarEventos() {
             }
         });
     }
+
+    if (existe("#btn-exportar-csv")) {
+        $("#btn-exportar-csv").addEventListener("click", exportarColeccionCsv);
+    }
+
+    if (existe("#btn-exportar-csv-tiendas")) {
+        $("#btn-exportar-csv-tiendas").addEventListener("click", exportarTiendasCsv);
+    }
 }
 
 async function precargarMetaServidor() {
@@ -857,7 +865,7 @@ function renderizarResumenColeccion(comics) {
             "Blake & Mortimer": "img/blakemortimer.png"
         };
 
-        const rutaImagen = fondos[serieUnica];
+        const rutaImagen = fondos[serieUnica] || "img/comic.jpeg";
 
         if (rutaImagen) {
             contenedorResumen.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${rutaImagen}')`;
@@ -1091,6 +1099,56 @@ function borrarTienda(id) {
     sincronizarFiltroCiudades();
     tiendaEditandoId = null;
     renderizarTodo();
+}
+
+function exportarColeccionCsv() {
+    if (!coleccion.length) {
+        alert("Nun hai datos de coleición pa exportar.");
+        return;
+    }
+
+    const filas = coleccion.map((comic) => ({
+        titulo: comic.titulo || comic.nombre || "",
+        serie: comic.serie || "",
+        autor: comic.autor || "",
+        editorial: comic.editorial || "",
+        estado: comic.estado || "",
+        tieneslu: comic.tieneslu ? "Sí" : "No",
+        fechaRegistro: comic.fechaRegistro || ""
+    }));
+
+    const contenido = window.csvUtils?.convertirDatosACsv?.(filas, ["titulo", "serie", "autor", "editorial", "estado", "tieneslu", "fechaRegistro"]);
+    if (!contenido) {
+        alert("No se pudo preparar o descargar el CSV.");
+        return;
+    }
+
+    window.csvUtils?.descargarCsv?.(`coleccion-bd-${new Date().toISOString().slice(0, 10)}.csv`, contenido);
+}
+
+function exportarTiendasCsv() {
+    if (!tiendas.length) {
+        alert("Nun hai tiendes pa exportar.");
+        return;
+    }
+
+    const filas = tiendas.map((tienda) => ({
+        nombre: tienda.nombre || "",
+        tipo: tienda.tipo === "fisica" ? "Física" : "Online",
+        web: tienda.web || "",
+        direccion: tienda.direccion || "",
+        pais: tienda.pais || "",
+        ciudad: tienda.ciudad || "",
+        fechaRegistro: tienda.fechaRegistro || ""
+    }));
+
+    const contenido = window.csvUtils?.convertirDatosACsv?.(filas, ["nombre", "tipo", "web", "direccion", "pais", "ciudad", "fechaRegistro"]);
+    if (!contenido) {
+        alert("No se pudo preparar o descargar el CSV.");
+        return;
+    }
+
+    window.csvUtils?.descargarCsv?.(`tiendas-bd-${new Date().toISOString().slice(0, 10)}.csv`, contenido);
 }
 
 function actualizarResumen() {

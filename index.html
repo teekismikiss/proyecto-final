@@ -88,7 +88,8 @@
                     <br>
                     <ul>
                         <li> <a href="listado.html" id="btn-cambio-bd" class="btnuno"
-                                style="background: #ff4d4d; data-action=" guardar-busqueda"
+                                style="background: #ff4d4d;"
+                                data-action="guardar-busqueda"
                                 aria-label="collecionBD">Cambio</a><!--pagina para modificar -->
                         </li>
                         <li> <a href="listbd.html" id="btn-buscar-bd" class="btnuno" data-action="guardar-busqueda"
@@ -96,6 +97,9 @@
                         </li>
                         <li> <a href="nuevabd.html" class="btnuno" aria-label="Añadir BD"
                                 style="background: #ff00f5;">Añadir</a>
+                        </li>
+                        <li>
+                            <button type="button" id="btn-exportar-csv" class="btnuno" data-export="coleccion" aria-label="Exportar BD">Exportar</button>
                         </li>
                     </ul>
 
@@ -135,8 +139,7 @@
                 <ul id="lista-tiendas-guardadas" class="store-list"></ul>
                 <a href="tiendas.html" id="btn-mostrar-tiendas" class="btnuno back-link" data-action="mostrar-tiendas"
                     aria-label="Mostrar tiendas">Mostrar</a>
-                <a href="nuevatienda.html" class="btnuno back-link" style="background: #ff00f5; aria-label=" Añadir
-                    tienda">Añadir</a>
+                <a href="nuevatienda.html" class="btnuno back-link" style="background: #ff00f5;" aria-label="Añadir tienda">Añadir</a>
 
             </section>
         </main>
@@ -152,12 +155,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="nuevatienda.html">
+                    <a href="tiendas.html">
                         <i class="fa-solid fa-shop" style="color:black;"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="nuevabd.html">
+                    <a href="listbd.html">
                         <i class="fa-solid fa-book" style="color:black;"></i>
                     </a>
                 </li>
@@ -174,7 +177,8 @@
 
     </footer>
     <script defer src="bdColeccion.js?v=20260419"></script>
-    <script defer src="app.js?v=20260419"></script>
+    <script defer src="csv-utils.js?v=20260611"></script>
+    <script defer src="app.js?v=20260611"></script>
 </body>
 
 </html>

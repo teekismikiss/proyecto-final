@@ -1,4 +1,4 @@
-const CACHE_NAME = "bdtracker-v2";
+const CACHE_NAME = "bdtracker-v3";
 const ASSETS = [
   "./",
   "./index.html",
@@ -9,6 +9,7 @@ const ASSETS = [
   "./tiendas.html",
   "./style.css",
   "./app.js",
+  "./csv-utils.js",
   "./bdColeccion.js",
   "./data/bdColeccion.json",
   "./manifest.json",

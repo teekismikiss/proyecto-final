@@ -37,17 +37,20 @@
 	                </div>
 	
 	                <ul id="lista-tiendas" class="store-list"></ul>
-	                <a href="index.html" class="back-link" aria-label="Volver al inicio">
-        <i class="fa-solid fa-arrow-left"></i> Volver
-    </a>
-	                </a>
+	                <div class="row-actions">
+	                    <button type="button" id="btn-exportar-csv-tiendas" class="back-link" data-export="tiendas">Exportar CSV</button>
+	                    <a href="index.html" class="back-link" aria-label="Volver al inicio">
+	                        <i class="fa-solid fa-arrow-left"></i> Volver
+	                    </a>
+	                </div>
 	            </section>
 	        </main>
 	        <footer>
 	
 	        </footer>
         <script defer src="bdColeccion.js?v=20260419"></script>
-        <script defer src="app.js?v=20260419"></script>
+        <script defer src="csv-utils.js?v=20260611"></script>
+        <script defer src="app.js?v=20260611"></script>
 </body>
 <!-- menu -->
 

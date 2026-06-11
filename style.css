@@ -30,7 +30,7 @@ html::before {
   --success: #c2f434;
   --danger: #936553;
 
-  --radius-lg: 5px;
+  --radius-lg: 3px;
   --radius-md: 2px;
   --radius-sm: 12px;
   --font-main: "Avenir Next", "Segoe UI", sans-serif;
@@ -296,12 +296,34 @@ select:focus {
 .danger-btn {
   border: 0;
   border-radius: var(--radius-md);
-  padding: 13px 18px;
+  padding: 5px 10px;
   min-height: 48px;
   font-weight: 700;
   cursor: pointer;
   transition: transform 140ms ease, opacity 140ms ease, box-shadow 140ms ease;
 }
+
+.back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            margin: 1rem 0 3rem;
+            padding: .55rem 1.3rem;
+            border-radius: 3px;
+            background: var(--bg-panel);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-family: var(--font-main);
+            font-weight: 600;
+            font-size: .85rem;
+            transition: background .2s, transform .15s;
+        }
+
+        .back-link:hover {
+            background: var(--pu);
+            transform: translateY(-1px);
+        }
 
 /* solo los botones principales a ancho completo */
 /*.primary-btn {
@@ -356,7 +378,7 @@ ul {
 }
 
 .ghost-btn {
-  background: var(--ve);
+  background: var(--bg-panel);
   color: var(--accent);
   box-shadow: var(--box);
   border: 1px solid var(--line);
