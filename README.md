@@ -1,7 +1,7 @@
  # PROYECTO FINAL  
  [BDtracker ([url](https://teeki.es/BD/))  
  
-**BDtracker** es una aplicación web (PWA) diseñada para una persona en concreto;para ayudarle a gestionar sus colección de bande dessinées (tebeos) y  repertorio de las tiendas de comics que encuentra durante sus viajes.
+**BDtracker** es una aplicación web (PWA) diseñada para un collecionista de tebeos ;para ayudarle a gestionar sus colecciones de bande dessinées (tebeos) y  repertorio de las tiendas de comics que encuentra durante sus viajes.
 
 
 
@@ -22,17 +22,16 @@ MySQL
 JSON      
 
 ### <ins>Diseño</ins>  
-<ins>Diseño</ins>: moderno y simple. Inspirado en el Neubrutalismo Digital y el los tebeos.  
+<ins>Diseños</ins>: Brutalismo Digital y Modern
 <ins>Iconografía</ins>: FontAwesome 7.0.1.  
 <ins>Tipografía</ins>:League Spartan (vía Google Fonts). 
 
-El diseño es "Old School" y minimalista. El enfoque prioriza la gestión de datos masivos sobre la ornamentación visual, alejándose deliberadamente de las tendencias de diseño efímeras y de efectos visuales complejos que puedan comprometer el rendimiento. El objetivo principal es garantizar la máxima rapidez y claridad en la consulta de información.
-el diseño implementa una navegación por etiquetas y filtros. En lugar de una exploración aleatoria, la interfaz está diseñada para un usuario experto que busca precisión, permitiendo organizar y localizar registros mediante criterios específicos de forma inmediata.
+
 
 <ins>Accesibilidad Semántica</ins>: Implementación de atributos aria-label en elementos interactivos.
 <ins>Visualización de Estados</ins>: El sistema utiliza indicadores visuales (basados en el campo booleano tieneslu) para ofrecer un feedback inmediato sobre el estado de la colección. Mediante el uso de códigos de color, el usuario puede identificar de un vistazo las carencias y existencias en su inventario.
 
-Neubrutalismo Digital: una tendencia popularizada a principios de la década de 2020. Estilo que rechaza los degradados y sombras suaves del diseño convencional en favor de una honestidad estructural.Se manifiesta a través del uso de colores planos de alta saturación, una tipografía clara y una jerarquía visual que prioriza la arquitectura de la base de datos sobre la estética ornamental.
+
 
 ### <ins>Paginas esenciales para el frontend</ins>  
 
@@ -126,6 +125,13 @@ flowchart TD
 ----
 #  Cómo usar
 
+### Cambiar tema
+
+1. En la página principal, localiza el selector visual de temas en la cabecera.
+2. Pulsa **Brutalist** o **Modern** para cambiar el estilo de la aplicación.
+3. El tema elegido se guarda automáticamente en el navegador.
+4. Al volver a abrir la app, se mantiene el último tema seleccionado.
+
 ### Añadir un cómic
 
 1. Navega a **Añadir BD** desde la página principal
@@ -152,11 +158,11 @@ flowchart TD
 4. Haz clic en el botón para marcar si lo tienes o no
 
 ### Gestionar tiendas
-
+1. **Para consultar tus tiendas**: clic el botón **Mostrar** en el inicio para ver la lista (tienes que haber grabado por loo menos una tienda)
 1. **Añadir**: Ve a **Añadir Tienda** y completa el formulario
-2. **Consultar**: Usa **Mis Tiendas** en el inicio para ver la lista
-3. **Filtrar**: Filtra por país y ciudad
-4. **Editar/Borrar**: En la página de tiendas puedes editar o eliminar
+
+3. **Filtrar**: Filtra por país y ciudad. Obligatorio elegir si la tienda es online o fisica
+4. **Editar/Borra las entradas**: En la página de tiendas puedes editar o eliminar
 
 ### Exportar datos
 
@@ -178,7 +184,7 @@ Los archivos se descargan automáticamente con la fecha del día.
 - **Frontend**: HTML, CSS, JavaScript vanilla
 - **Almacenamiento**: LocalStorage (navegador)
 - **PWA**: Service Worker para funcionamiento offline
-- **Backend opcional**: PHP con MySQL (en `crud/`)
+- **Backend opcional**: PHP (crud)
 - **Iconografía**: Font Awesome 7
 
 ### Archivos principales

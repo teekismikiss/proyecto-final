@@ -9,11 +9,58 @@
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/icon-192.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="icons/icon-192.svg">
-    <link rel="stylesheet" href="style.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="styleb.css">
+    <style>
+        .theme-switcher {
+            display: inline-flex;
+            align-items: center;
+            gap: .35rem;
+            padding: .35rem;
+            
+            
+           
+        }
+
+        .theme-switcher button {
+            border: 0;
+            border-radius: 999px;
+            padding: .65rem 1rem;
+            font: inherit;
+            font-weight: 700;
+            color: #1f2937;
+            background: rgba(255, 255, 255, 0.55);
+            cursor: pointer;
+            transition: background .2s ease, color .2s ease, transform .2s ease;
+        }
+
+        .theme-switcher button:hover,
+        .theme-switcher button:focus-visible {
+            background: rgba(255, 255, 255, 0.5);
+            outline: none;
+            transform: translateY(-1px);
+        }
+
+        .theme-switcher button.is-active {
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+    <script>
+        (function () {
+            var themeKey = "bd_tracker_theme";
+            var allowedThemes = ["style.css", "styleb.css"];
+            var savedTheme = localStorage.getItem(themeKey);
+            var themeHref = allowedThemes.includes(savedTheme) ? savedTheme : "styleb.css";
+            var themeLink = document.getElementById("theme-stylesheet");
+
+            if (themeLink) {
+                themeLink.setAttribute("href", themeHref);
+            }
+        }());
+    </script>
 
     <!-- cargarmos fontawesome para iconitos-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
     <title>BD Tracker</title>
 </head>
 
@@ -31,6 +78,11 @@
                 <p class="hero-copy">
                     ¡A por toles!
                 </p>
+            </div>
+            <div class="theme-switcher" aria-label="Cambiar estilo visual">
+                <button type="button" class="theme-btn" data-theme="style.css">Brutalist</button>
+                <button type="button" class="theme-btn" data-theme="styleb.css">Modern</button>
+                <i class="fa-solid fa-arrow-left"> </i><p class="hero-copy"> Elige tu tema</p>
             </div>
             <div class="hero-stats" id="resumen-app">
                 <article>
@@ -136,7 +188,6 @@
                     </select>
                 </div>
                 <br>
-                <ul id="lista-tiendas-guardadas" class="store-list"></ul>
                 <a href="tiendas.html" id="btn-mostrar-tiendas" class="btnuno back-link" data-action="mostrar-tiendas"
                     aria-label="Mostrar tiendas">Mostrar</a>
                 <a href="nuevatienda.html" class="btnuno back-link" style="background: #ff00f5;" aria-label="Añadir tienda">Añadir</a>
@@ -178,7 +229,7 @@
     </footer>
     <script defer src="bdColeccion.js?v=20260419"></script>
     <script defer src="csv-utils.js?v=20260611"></script>
-    <script defer src="app.js?v=20260611"></script>
+    <script defer src="app.js?v=20260615"></script>
 </body>
 
 </html>

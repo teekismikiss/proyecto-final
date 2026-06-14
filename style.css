@@ -1,5 +1,5 @@
 html::before {
-  content: 'CodePen ♥ The Web';
+
   position: fixed;
   inset: 0;
   z-index: -1;
@@ -30,8 +30,8 @@ html::before {
   --success: #c2f434;
   --danger: #936553;
 
-  --radius-lg: 3px;
-  --radius-md: 2px;
+  --radius-lg: 28px;
+  --radius-md: 28px;
   --radius-sm: 12px;
   --font-main: "Avenir Next", "Segoe UI", sans-serif;
   --H3T: "Avenir Next", "Segoe UI", sans-serif;
@@ -114,6 +114,8 @@ select {
   gap: 24px;
   padding: 28px;
   border-radius: 2px;
+  border: 1px solid var(--accent);
+  
 }
 
 
@@ -162,8 +164,8 @@ h1 {
 .hero-stats article {
   padding: 16px;
   background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(198, 93, 46, 0.14);
-  border-radius: var(--radius-md);
+  border: 2px solid var(--line);
+  border-radius: 28px;
 }
 
 .stat-label {
@@ -171,6 +173,7 @@ h1 {
   margin-bottom: 6px;
   color: var(--muted);
   font-size: 0.88rem;
+  border-radius: var(--radius-lg)
 }
 
 .hero-stats strong {
@@ -486,6 +489,22 @@ th {
 
 tbody tr:hover {
   background: var(--yel);
+}
+
+tr.serie-header {
+  background: #b39ddb;
+  color: var(--bg-panel);
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+tr.serie-header td {
+  padding: 12px 14px;
+  border-bottom: 2px solid var(--pu);
+}
+
+tr.serie-header:hover {
+  background: #b39ddb;
 }
 
 /*  TABLA EN MODO TARJETA */

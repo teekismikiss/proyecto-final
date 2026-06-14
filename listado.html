@@ -13,7 +13,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="style.css">
+    <script>
+        (function () {
+            var themeKey = "bd_tracker_theme";
+            var allowedThemes = ["style.css", "styleb.css"];
+            var savedTheme = localStorage.getItem(themeKey);
+            var themeHref = allowedThemes.includes(savedTheme) ? savedTheme : "styleb.css";
+            var themeLink = document.getElementById("theme-stylesheet");
+
+            if (themeLink) {
+                themeLink.setAttribute("href", themeHref);
+            }
+        }());
+    </script>
     <title>BD Tracker</title>
 </head>
 

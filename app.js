@@ -1,8 +1,10 @@
+  
 const STORAGE_KEYS = {
     comics: "mi_coleccion_bd",
     stores: "tiendas_bd",
     comicSearch: "busqueda_bd",
-    storeSiteFilter: "filtro_sitio_tienda"
+    storeSiteFilter: "filtro_sitio_tienda",
+    theme: "bd_tracker_theme"
 };
 
 const API_COLECCION_URL = "crud/api_coleccion.php";
@@ -102,6 +104,8 @@ async function inicializarDatos() {
 }
 
 function enlazarEventos() {
+    enlazarSelectorTema();
+
     if (existe("#form-comic")) {
         $("#form-comic").addEventListener("submit", guardarBD);
     }
@@ -182,8 +186,51 @@ function enlazarEventos() {
         $("#btn-exportar-csv").addEventListener("click", exportarColeccionCsv);
     }
 
+    if (existe("#btn-buscar-bd")) {
+        $("#btn-buscar-bd").addEventListener("click", (event) => {
+            event.preventDefault();
+            consultaActiva = true;
+            guardarBusquedaActiva();
+            window.location.href = construirUrlListadoConFiltros();
+        });
+    }
+
     if (existe("#btn-exportar-csv-tiendas")) {
         $("#btn-exportar-csv-tiendas").addEventListener("click", exportarTiendasCsv);
+    }
+}
+
+function enlazarSelectorTema() {
+    const themeLink = document.querySelector("#theme-stylesheet");
+    const buttons = document.querySelectorAll(".theme-btn");
+
+    if (!themeLink || !buttons.length) {
+        return;
+    }
+
+    const allowedThemes = ["style.css", "styleb.css"];
+    const savedTheme = localStorage.getItem(STORAGE_KEYS.theme);
+    const activeTheme = allowedThemes.includes(savedTheme) ? savedTheme : "styleb.css";
+
+    aplicarTema(activeTheme);
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const { theme } = button.dataset;
+            if (!allowedThemes.includes(theme)) {
+                return;
+            }
+            aplicarTema(theme);
+        });
+    });
+
+    function aplicarTema(theme) {
+        themeLink.setAttribute("href", theme);
+        localStorage.setItem(STORAGE_KEYS.theme, theme);
+        buttons.forEach((button) => {
+            button.classList.toggle("is-active", button.dataset.theme === theme);
+            button.setAttribute("aria-pressed", String(button.dataset.theme === theme));
+        });
     }
 }
 
@@ -284,7 +331,8 @@ function normalizarComic(comic = {}) {
         autor: String(comic.autor || comic.autores || "").trim(),
         editorial: String(comic.editorial || "").trim(),
         estado: estadoPorDefecto(estadoNombreASlug(comic.estado)),
-        tieneslu: Boolean(comic.tieneslu)
+        tieneslu: Boolean(comic.tieneslu),
+        addedAt: Number(comic.addedAt) || 0
     };
 }
 
@@ -358,7 +406,8 @@ function guardarBD(event) {
         autor: $("#autor")?.value,
         editorial: $("#editorial")?.value,
         estado: $("#estau")?.value || "nuevu",
-        tieneslu: $("#tieneslu")?.checked
+        tieneslu: $("#tieneslu")?.checked,
+        addedAt: Date.now()
     });
 
     if (!nuevoComic.serie || !nuevoComic.titulo || !nuevoComic.autor) {
@@ -407,21 +456,55 @@ function renderizarAccesosSeries() {
     }
 
     contenedor.innerHTML = tusbd.lesbd
-        .map((bd) => `<li><a class="bd-link" href="${escapeHtml(bd.url)}" data-serie="${escapeHtml(bd.serie)}">${escapeHtml(bd.nombre)}</a></li>`)
+        .map((bd) => `<li><a class="bd-link" href="listbd.html?serie=${encodeURIComponent(bd.serie)}" data-serie="${escapeHtml(bd.serie)}">${escapeHtml(bd.nombre)}</a></li>`)
         .join("");
 
     contenedor.querySelectorAll("[data-serie]").forEach((enlace) => {
         enlace.addEventListener("click", (event) => {
             event.preventDefault();
-            if (existe("#filtro-serie")) $("#filtro-serie").value = enlace.dataset.serie || "todas";
+            const serie = enlace.dataset.serie || "todas";
+            if (existe("#filtro-serie")) $("#filtro-serie").value = serie;
             if (existe("#buscador-bd")) $("#buscador-bd").value = "";
             if (existe("#filtro-estado")) $("#filtro-estado").value = "todos";
             if (existe("#filtro-propiedad")) $("#filtro-propiedad").value = "todos";
             consultaActiva = true;
             guardarBusquedaActiva();
-            renderizarColeccion();
+            window.location.href = `listbd.html?serie=${encodeURIComponent(serie)}`;
         });
     });
+}
+
+function obtenerFiltrosDesdeUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const termino = String(params.get("q") || "").trim();
+    const serie = String(params.get("serie") || "").trim();
+    const estado = String(params.get("estado") || "").trim();
+    const propiedad = String(params.get("propiedad") || "").trim();
+    const hayFiltros = Boolean(termino || serie || estado || propiedad);
+
+    return {
+        termino: termino.toLowerCase(),
+        serie: serie || "todas",
+        estado: estado || "todos",
+        propiedad: propiedad || "todos",
+        activa: hayFiltros
+    };
+}
+
+function construirUrlListadoConFiltros() {
+    const params = new URLSearchParams();
+    const termino = existe("#buscador-bd") ? $("#buscador-bd").value.trim() : "";
+    const serie = existe("#filtro-serie") ? $("#filtro-serie").value : "todas";
+    const estado = existe("#filtro-estado") ? $("#filtro-estado").value : "todos";
+    const propiedad = existe("#filtro-propiedad") ? $("#filtro-propiedad").value : "todos";
+
+    if (termino) params.set("q", termino);
+    if (serie && serie !== "todas") params.set("serie", serie);
+    if (estado && estado !== "todos") params.set("estado", estado);
+    if (propiedad && propiedad !== "todos") params.set("propiedad", propiedad);
+
+    const query = params.toString();
+    return query ? `listbd.html?${query}` : "listbd.html";
 }
 
 function activarConsultaYRenderizar() {
@@ -431,6 +514,11 @@ function activarConsultaYRenderizar() {
 }
 
 function obtenerFiltrosColeccion() {
+    const desdeUrl = obtenerFiltrosDesdeUrl();
+    if (desdeUrl.activa) {
+        return desdeUrl;
+    }
+
     const guardados = leerStorage(STORAGE_KEYS.comicSearch, {
         termino: "",
         serie: "todas",
@@ -613,7 +701,7 @@ function pintarTablaColeccion(visibles, accionesServidor = false) {
     visibles.forEach((comic) => {
         const fila = document.createElement("tr");
         if (comic.tieneslu) {
-            fila.style.background = "#c2f434";
+            fila.style.background = "#b39ddb";
         }
         const accionesHtml = configTabla.showActions
             ? `
@@ -694,7 +782,7 @@ function enlazarAccionesTabla(showActions, accionesServidor) {
                 button.textContent = textoAccionTieneslu(nuevoOwned);
                 const row = button.closest("tr");
                 if (row) {
-                    row.style.background = nuevoOwned ? "#c2f434" : "";
+                    row.style.background = nuevoOwned ? "#b39ddb" : "";
                     const pill = row.querySelector(".own-pill");
                     if (pill) {
                         pill.dataset.owned = String(nuevoOwned);
@@ -742,9 +830,130 @@ function enlazarAccionesTabla(showActions, accionesServidor) {
     });
 }
 
+function esPaginaListado() {
+    return document.body.classList.contains('listado');
+}
+
+function pintarTablaColeccionPorSerie(comics, accionesServidor = false) {
+    const cuerpo = $("#tabla-bd");
+    if (!cuerpo) {
+        return;
+    }
+
+    const configTabla = obtenerConfigTablaColeccion();
+    cuerpo.innerHTML = "";
+
+    if (!comics.length) {
+        cuerpo.innerHTML = `
+      <tr>
+        <td colspan="${configTabla.colspan}">
+          <p class="empty-state">Nun hai BD na to coleición.</p>
+        </td>
+      </tr>
+    `;
+        return;
+    }
+
+    // Agrupar por serie
+    const porSerie = {};
+    comics.forEach((comic) => {
+        if (!porSerie[comic.serie]) {
+            porSerie[comic.serie] = [];
+        }
+        porSerie[comic.serie].push(comic);
+    });
+
+    // Ordenar cada serie
+    Object.keys(porSerie).forEach((serie) => {
+        porSerie[serie].sort((a, b) => {
+            // Primero: recientemente añadidos (mayor timestamp primero)
+            if (b.addedAt !== a.addedAt) {
+                return b.addedAt - a.addedAt;
+            }
+            // Luego: los que tiene (tieneslu=true) primero
+            if (a.tieneslu !== b.tieneslu) {
+                return b.tieneslu ? 1 : -1;
+            }
+            // Al final: por orden de aparición
+            return 0;
+        });
+    });
+
+    // Obtener series ordenadas: primero las que tienen cómics recientes
+    const seriesConRecientes = Object.keys(porSerie).sort((aKey, bKey) => {
+        const aReciente = porSerie[aKey][0]?.addedAt || 0;
+        const bReciente = porSerie[bKey][0]?.addedAt || 0;
+        return bReciente - aReciente;
+    });
+
+    // Renderizar por serie
+    seriesConRecientes.forEach((serie) => {
+        const comicsSerie = porSerie[serie];
+
+        // Header de la serie
+        const filaEncabezado = document.createElement("tr");
+        filaEncabezado.className = "serie-header";
+        filaEncabezado.innerHTML = `
+            <td colspan="${configTabla.colspan}"><strong>${escapeHtml(serie)}</strong></td>
+        `;
+        cuerpo.appendChild(filaEncabezado);
+
+        // Cómics de la serie
+        comicsSerie.forEach((comic) => {
+            const fila = document.createElement("tr");
+            if (comic.tieneslu) {
+                fila.style.background = "#b39ddb";
+            }
+            const accionesHtml = configTabla.showActions
+                ? `
+              <td>
+                <div class="row-actions">
+                  <select class="ghost-btn" data-action="${accionesServidor ? "cambiar-estado" : "cambiar-estado-local"}" data-id="${comic.id}">
+                    ${opcionesEstadoHtml(comic.estado)}
+                  </select>
+                  <button type="button" class="ghost-btn" data-action="${accionesServidor ? "toggle-owned" : "toggle-local"}" data-id="${comic.id}" data-owned="${comic.tieneslu ? "1" : "0"}">
+                    ${textoAccionTieneslu(comic.tieneslu)}
+                  </button>
+                </div>
+              </td>
+            `
+                : "";
+
+            fila.innerHTML = `
+              <td>${escapeHtml(comic.titulo)}</td>
+              <td><span class="state-pill">${escapeHtml(ESTADO_LABELS[estadoPorDefecto(comic.estado)] || "Nuevu")}</span></td>
+              <td><span class="own-pill" data-owned="${comic.tieneslu}">${comic.tieneslu ? "Sí" : "Non"}</span></td>
+              ${accionesHtml}
+            `;
+            cuerpo.appendChild(fila);
+        });
+    });
+
+    enlazarAccionesTabla(configTabla.showActions, accionesServidor);
+}
+
 function renderizarColeccion() {
     const cuerpo = $("#tabla-bd");
     if (!cuerpo) {
+        return;
+    }
+
+    const filtrosUrl = obtenerFiltrosDesdeUrl();
+
+    // En listbd.html, solo filtramos si la URL trae la búsqueda; si no, enseñamos todo.
+    if (esPaginaListado()) {
+        if (!filtrosUrl.activa) {
+            renderizarResumenColeccion([]);
+            pintarTablaColeccionPorSerie(coleccion, false);
+            return;
+        }
+
+        if (usaServidorColeccion()) {
+            renderizarColeccionServidor(filtrosUrl);
+            return;
+        }
+
+        renderizarColeccionLocal(filtrosUrl);
         return;
     }
 
@@ -886,54 +1095,7 @@ function toggleTieneslu(id) {
 function renderizarTiendas() {
     if (existe("#lista-tiendas")) {
         renderizarTiendasPagina();
-    } else if (existe("#lista-tiendas-guardadas")) {
-        renderizarTiendasIndex();
     }
-}
-
-function renderizarTiendasIndex() {
-    const contenedor = $("#lista-tiendas-guardadas");
-    if (!contenedor) {
-        return;
-    }
-
-    const filtroPais = $("#filtro-pais")?.value || "todos";
-    const filtroCiudad = $("#filtro-ciudad")?.value || "todas";
-    const visibles = tiendas.filter((tienda) => {
-        const coincidePais = filtroPais === "todos" || tienda.pais === filtroPais;
-        const coincideCiudad = filtroCiudad === "todas" || tienda.ciudad === filtroCiudad;
-        return coincidePais && coincideCiudad;
-    });
-
-    contenedor.innerHTML = "";
-    if (!visibles.length) {
-        contenedor.innerHTML = '<li><p class="empty-state">Nun hai tiendes rexistraes con esi filtru.</p></li>';
-        return;
-    }
-
-    visibles.forEach((tienda) => {
-        const item = document.createElement("li");
-        item.className = "store-card";
-        const tipoLabel = tienda.tipo === "online" ? "Online" : "Física";
-        const lineas = [];
-
-        if (tienda.tipo === "fisica") {
-            if (tienda.direccion) lineas.push(escapeHtml(tienda.direccion));
-            const zona = [tienda.ciudad, tienda.pais ? capitalizar(tienda.pais) : ""].filter(Boolean).join(", ");
-            if (zona) lineas.push(escapeHtml(zona));
-            if (tienda.web) lineas.push(escapeHtml(tienda.web));
-        } else if (tienda.web) {
-            lineas.push(escapeHtml(tienda.web));
-        }
-
-        item.innerHTML = `
-          <div>
-            <h3>${escapeHtml(tienda.nombre)} <small>(${escapeHtml(tipoLabel)})</small></h3>
-            ${lineas.length ? `<p class="store-meta">${lineas.join("<br>")}</p>` : ""}
-          </div>
-        `;
-        contenedor.appendChild(item);
-    });
 }
 
 function renderizarTiendasPagina() {
@@ -1007,7 +1169,7 @@ function renderizarVistaTienda(tienda) {
         if (zona) lineas.push(escapeHtml(zona));
     }
     if (web) {
-        lineas.push(`<a href="${escapeHtml(web)}" target="_blank" rel="noopener noreferrer">${escapeHtml(tienda.web)}</a>`);
+        lineas.push(`<a href="${escapeHtml(web)}" target="_blank" rel="noopener noreferrer" >${escapeHtml(tienda.web)}</a>`);
     }
 
     return `
